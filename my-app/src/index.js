@@ -2,13 +2,13 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './style.css';
 import 'semantic-ui-css/semantic.min.css';
-import { Container, Header, Image, Menu, Grid, Icon, Dropdown } from 'semantic-ui-react';
+import { Container, Header, Image, Menu, Grid, Icon, Dropdown, Input, Label } from 'semantic-ui-react';
 
 class TopMenu extends React.Component {
   render() {
     return (
         <div>
-          <Menu borderless style={{ border: "none", boxShadow: "none" }}>
+          <Menu className={"topmenu"} borderless style={{ border: "none", boxShadow: "none" }}>
             <Grid container>
               <Grid.Row>
                 <Menu.Item position={'left'}>
@@ -50,7 +50,6 @@ class TopMenu extends React.Component {
                 </Menu.Item>
               </Grid.Row>
 
-
             </Grid>
           </Menu>
         </div>
@@ -62,34 +61,35 @@ class MidMenu extends React.Component {
   render() {
     return (
         <div>
-          <Image className="image" fluid src={"deadkooks.png"}/>
+          <Image className="image" fluid
+                 src={"https://github.com/kyraikeda/deadkooks-react/blob/master/deadkooks.png?raw=true"}/>
         </div>
     );
   }
 }
 
+class Footer extends React.Component {
+  render() {
+    return (
+        <div>
+          <Grid className={"footer"}>
+            <Grid.Column width={5}>
+            </Grid.Column>
 
-// <div className="midsection">
-//   <img className="ui fluid image" src="deadkooks.png">
-//
-// </div>
+            <Grid.Column textAlign={'center'} width={6}>
+              <p className={"top"}>SUBSCRIBE TO OUR NEWSLETTER</p>
+              <p className="bottom"> Keep up-to-date with new boards and Dead Kooks news</p>
+              <Input className={"email"} placeholder={"Email address"} label={"Subscribe"} labelPosition={'right'}/>
+            </Grid.Column>
 
-// <div className="footer divider">
-//   <div className="ui center aligned grid">
-//     <div className="five wide column"></div>
-//     <div className="six wide column">
-//       <p className="top">SUBSCRIBE TO OUR NEWSLETTER</p>
-//       <p className="bottom"> Keep up-to-date with new boards and Dead Kooks news</p>
-//       <div className="ui labeled input email">
-//         <input type="text" placeholder="Email address">
-//           <div className="ui black label">
-//             Subscribe
-//           </div>
-//       </div>
-//     </div>
-//     <div className="five wide column"></div>
-//   </div>
-// </div>
+            <Grid.Column width={5}>
+            </Grid.Column>
+          </Grid>
+        </div>
+
+    );
+  }
+}
 
 class Deadkooks extends React.Component {
   render() {
@@ -97,8 +97,8 @@ class Deadkooks extends React.Component {
         <div>
           <TopMenu/>
           <MidMenu/>
+          <Footer/>
         </div>
-
     );
   }
 }
